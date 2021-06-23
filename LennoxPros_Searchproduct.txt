@@ -1,0 +1,52 @@
+public class lennoxPros {
+public void login() {
+System.setProperty("webdriver.chrome.driver", "path of driver");
+WebDriver driver=new ChromeDriver();
+driver.manage().window().maximize();
+driver.get("liidaveqa.com");
+WebElement username=driver.findElement(By.id("j_username"));
+WebElement password=driver.findElement(By.id("j_password"));
+WebElement login=driver.findElement(By.id("loginSubmit"));
+username.sendKeys("lenproautomation8@lenqat.com");
+password.sendKeys("Community17");
+login.click();
+}
+/***Navigate part and supplies****/
+public void NavigatePartandSupplies() {
+WebElement sidemenu driver.findElement(By.xpath ("//*[@id="page"]/div[1]/div/div[1]/a/i"));
+WebElement partandsupplies driver.findElement(By.xpath("//*[@id="page"]/div[1]/div/div[3]/div[1]/div/div[3]/a"));
+WebElement compressors driver.findElement(By.xpath("//*[@id="page"]/div[1]/div/div[3]/div[1]/div/div[3]/div/div[1]/div/div/div[4]/a"));
+
+sidemenu.click();
+partandsupplies.click();
+compressors.click();
+
+WebElement compressorspage  driver.findElement (By.xpath("//*[@id="content"]/div[5]/div/div[1]/aside/ul/li/ul/li[2]/a"));
+compressorspage.click();
+/*** title page verification***/
+
+String ExpectedTitle = "Compressors | LennoxPROs.com";
+WebElement ActualTitle = Driver.gettitle();
+Assert.assertEquals(ExpectedTitle, ActualTitle);
+
+/*** Landing page verification***/
+WebElement ExpectedPage= driver.findElement(By.xpath(//*[@id="content"]/div[4]/div/div/div[1]/h1));
+String LandingPage = "Replace your compressor at LennoxPros.com.";
+Assert.assertEquals(LandingPage, ExpectedPage)
+}
+
+/*** Search product and store product list ***/
+public void SearchCompressions(){
+driver.findElement(By.id("search").sendKeys("10T46");
+List <WebElement> ProductList = driver.FindElements(By.xpath("");
+}
+
+/*** capture screenshot***/
+public static String capture(WebDriver driver) Throws IOException {
+File scrFile = (TakesScreenshot) driver.getScreenshotAs(OutputType.FILE);
+File Dest = new File ("src/../images/" + system.CurrentTimeMillis() + ".png");
+String errfilepath = Dest.getAbsolutePath();
+FileUtils.copyFile(scrFile, Dest);
+return errfilepath;
+}
+

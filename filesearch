@@ -1,0 +1,53 @@
+package ccrt;
+
+import java.io.File;
+import java.io.FilenameFilter;
+
+public class Filesearch
+{
+	public static void main(String[] args)
+	{
+		Filesearch filesearch = new Filesearch();
+		filesearch.listOutfiles("D:\\reports", ".amex");
+	}
+
+	private void listOutfiles(String dirname, String fileExtension) {
+		File fileDir = new File (dirname);
+		
+		ExtensionFilter extfilter = new ExtensionFilter(fileExtension);
+		
+		String[] listOfFileNames = fileDir.list(extfilter);
+		
+		if (listOfFileNames.length==0)
+		{
+			System.out.println("No files end with" + fileExtension);
+			return;
+		}
+		for (String fileName:  listOfFileNames)
+		{
+			System.out.println(fileName);
+		}
+	}
+}
+
+
+package ccrt;
+
+import java.io.File;
+import java.io.FilenameFilter;
+
+public class ExtensionFilter implements FilenameFilter
+{
+	private String fileExtension;
+	public ExtensionFilter(String fileExtension)
+
+	{
+		this.fileExtension = fileExtension;
+	
+	}	
+	@Override
+	public boolean accept(File dir, String name)
+	{
+		return (name.endsWith(fileExtension));
+	}
+}
